@@ -20,7 +20,7 @@ export default class CreatePersonaje extends Component {
 		let request = "api/personajes";
 		axios.post(this.url + request, nuevoPersonaje).then((response) => {
 			console.log("Insertado");
-			let paginaSerie = "/serie/" + nuevoPersonaje.idSerie;
+			let paginaSerie = "/personajes/" + nuevoPersonaje.idSerie;
 			window.location.href = paginaSerie;
 		});
 	};
