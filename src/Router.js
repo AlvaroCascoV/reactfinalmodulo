@@ -4,20 +4,27 @@ import { BrowserRouter, Route, Routes, useParams } from 'react-router-dom'
 import MenuRutas from './components/MenuRutas'
 import Home from './components/Home'
 import Serie from './components/Serie';
+import Personajes from './components/Personajes';
+import CreatePersonaje from './components/CreatePersonaje';
 
 export default class Router extends Component {
     render() {
-        // Función para componentes que reciben parámetros por URL
         function SeriesComponent() {
-            let { id } = useParams();
-            return <Serie idSerie={id} />
+            let { idSerie } = useParams();
+            return <Serie idSerie={idSerie} />
+        }
+        function PersonajesComponent() {
+            let { idSerie } = useParams();
+            return <Personajes idSerie={idSerie} />
         }
         return (
             <BrowserRouter>
                 <MenuRutas />
                 <Routes>
                     <Route path="/" element={<Home />} />
-                    <Route path="/serie/:id" element={<SeriesComponent />} />
+                    <Route path="/serie/:idSerie" element={<SeriesComponent />} />
+                    <Route path="/personajes/:idSerie" element={<PersonajesComponent />} />
+                    <Route path="/create" element={<CreatePersonaje />} />
                 </Routes>
             </BrowserRouter>
         )

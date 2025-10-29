@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Global from "../Global";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export default class Serie extends Component {
 	url = Global.urlApi;
@@ -10,7 +10,7 @@ export default class Serie extends Component {
 		let request = "api/series/" + this.props.idSerie;
 		axios.get(this.url + request).then((response) => {
 			this.setState({
-				Serie: response.data,
+				serie: response.data,
 			});
 		});
 	};
@@ -30,25 +30,27 @@ export default class Serie extends Component {
 	render() {
 		return (
 			<div>
-				<h1>Detalles de Serie {this.props.idSerie}</h1>
 				<div>
 					<ul className="list-group">
 						{this.state.serie && (
 							<div>
 								<li className="list-group-item">
-									ID: {this.state.serie.idSerie}
+									<img
+										src={this.state.serie.imagen}
+										alt="imagen de serie"
+										style={{ width: "250px", height: "auto" }}
+									/>
 								</li>
 								<li className="list-group-item">
-									Nombre: {this.state.serie.nombre}
+									IMDB: {this.state.serie.puntuacion}
 								</li>
 								<li className="list-group-item">
-									<Link
-										className="btn btn-success"
-										to="/personaje"
-										state={{ idSerie: this.state.serie.idSerie }}
+									<NavLink
+										className="btn btn-primary"
+										to={"/personajes/" + this.state.serie.idSerie}
 									>
 										Personajes
-									</Link>
+									</NavLink>
 								</li>
 							</div>
 						)}
@@ -58,12 +60,3 @@ export default class Serie extends Component {
 		);
 	}
 }
-// [
-//   {
-//     "idSerie": 0,
-//     "nombre": "string",
-//     "imagen": "string",
-//     "puntuacion": 0,
-//     "anyo": 0
-//   }
-// ]

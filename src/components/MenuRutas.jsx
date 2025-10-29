@@ -49,8 +49,8 @@ export default class Menu extends Component {
 								</NavLink>
 							</li>
 							<li className="nav-item">
-								<NavLink className="nav-link" to="/lista">
-									Lista
+								<NavLink className="nav-link" to="/create">
+									Nuevo Personaje
 								</NavLink>
 							</li>
 							<li className="nav-item dropdown">
@@ -61,7 +61,7 @@ export default class Menu extends Component {
 									data-bs-toggle="dropdown"
 									aria-expanded="false"
 								>
-									Entidades
+									Series
 								</a>
 								<ul className="dropdown-menu">
 									{this.state.series.map((serie, index) => {
