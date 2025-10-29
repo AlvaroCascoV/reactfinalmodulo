@@ -53,6 +53,11 @@ export default class Menu extends Component {
 									Nuevo Personaje
 								</NavLink>
 							</li>
+							<li className="nav-item">
+								<NavLink className="nav-link" to="/update">
+									Modificar Personaje
+								</NavLink>
+							</li>
 							<li className="nav-item dropdown">
 								<a
 									className="nav-link dropdown-toggle"
