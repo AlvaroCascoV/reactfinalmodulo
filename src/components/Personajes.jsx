@@ -58,11 +58,3 @@ export default class Personajes extends Component {
 		);
 	}
 }
-// [
-//   {
-//     "idPersonaje": 0,
-//     "nombre": "string",
-//     "imagen": "string",
-//     "idSerie": 0
-//   }
-// ]
